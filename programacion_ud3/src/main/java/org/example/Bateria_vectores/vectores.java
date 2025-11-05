@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Bateria_vectores;
 
 import java.util.Arrays;
 import java.util.Scanner;
