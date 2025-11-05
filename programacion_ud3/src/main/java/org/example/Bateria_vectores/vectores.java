@@ -18,16 +18,16 @@ public class vectores {
 
 
         String[] vector2 = new String[8]; //el 8 es el tamaño del vector. Si no pones nada, en int saldran 0 y con String da nulls. Con booleanos da falses
-        System.out.println(Arrays.toString(vector2));
+        System.out.println(Arrays.toString(vector2)); //las posiciones empiezan desde 0, en este caso del 0 al 7
 
 
         int[]vector3 = {3,0,9,5,8};
 
         vector = vector3.clone(); //Mantienen cada uno su direccion de memoria propia
-        System.out.println(vector);
+        System.out.println(vector);// si haces print asi sale la direccion  de memoria.
         System.out.println(vector3);
         vector=vector3; //Si los igualas así, vector copia la direccion de memoria de vector3.
-        System.out.println(vector); // si haces print asi sale la direccion  de memoria.
+        System.out.println(vector);
 
 
         for (int i = 0 ; i< vector3.length; i++){
@@ -41,5 +41,14 @@ public class vectores {
 
         }
 
+        //Rellenar un vector por teclado
+
+        int[] vector4 = new int[4];
+        for (int i = 0; i<vector4.length; i++){
+
+            vector4[i] = teclado.nextInt();
+
+        }
+        System.out.println(Arrays.toString(vector4));
     }
 }
