@@ -21,7 +21,7 @@ public class Ejercicio4 {
             }else {
                 vector2[i] = vector[i];
             }
-            
+
 
             System.out.print(vector[i]);
 
