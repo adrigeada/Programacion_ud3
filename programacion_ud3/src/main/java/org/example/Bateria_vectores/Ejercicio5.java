@@ -17,9 +17,24 @@ public class Ejercicio5 {
             }
 
         }
+//        System.out.println(Arrays.toString(rotado));
+
+        int[] vector2 = {1,2,3,4,5};
+        int longitud2 = vector2.length;
+        int aux2 = 0;
+
+        aux2 = vector[longitud2-1];
+
+        for (int j = longitud2-1; j>=1; j--){
+
+            vector2[j]= vector2[j-1];
+
+        }
+
+        vector2[0]=aux2;
 
 
-        System.out.println(Arrays.toString(rotado));
+        System.out.println(Arrays.toString(vector2));
 
 
     }
