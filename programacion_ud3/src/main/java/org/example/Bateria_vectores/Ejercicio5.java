@@ -19,7 +19,6 @@ public class Ejercicio5 {
         }
 
 
-
         System.out.println(Arrays.toString(rotado));
 
 
