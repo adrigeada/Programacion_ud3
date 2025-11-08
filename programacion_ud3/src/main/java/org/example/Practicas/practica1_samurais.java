@@ -13,10 +13,12 @@ public class practica1_samurais {
         int[] equipo1 = new int[7];
         int[] equipo2 = new int[7];
         String potencias = "";
+        String[] vetor_potencias= new String[equipo.length];
         int control_30 = 0;
 
         //Este for siempre se va a hacer 2 veces para hacer los dos equipos.
         //Dentro del for, hay un do while que se repite hasta que la suma de la potencia de los samurais de 30 exacto.
+        //Lo de igualar a 200 es una forma de asegurarme que el do while se repite aunque la suma de numeros no validos sea 30. 25+1+1+1+1+1+0 y 14+15+1 dan 30, pero no son datos validos.
         for (int j = 1; j<=2;j++){
 
             System.out.println("Equipo "+j);
@@ -27,17 +29,17 @@ public class practica1_samurais {
                 System.out.println("Introduce la potencia de los samurais dividido con comas");
                 potencias = teclado.next();
 
-                String[] vetor_potencias = potencias.split(",");
+                vetor_potencias = potencias.split(",");
 
-                //Ahora pasar cada hueco del string a ints. Para poder sumarlos entre si.
-
+                if (vetor_potencias.length==7){
 
                     for (int i = 0; i< equipo.length; i++){
 
+                        //Ahora pasar cada hueco del string a ints. Para poder sumarlos entre si.
                         equipo[i] = Integer.parseInt(vetor_potencias[i]); //El String de la posicion i se pasa a int.
 
                         if (equipo[i]>24 || equipo[i]<1){
-                            System.out.println("Los numeros deben estar entre 1 y 24");
+                            System.out.println("Los numeros deben estar entre 1 y 24, vuelve a empezar.");
                             control_30=200;
                             break;
                         }
@@ -46,12 +48,12 @@ public class practica1_samurais {
                         control_30 += equipo[i]; //Se suman los int de cada posicion.
 
                     }
-
+                }else{
+                    System.out.println("Tienes que usar 7 samurais");
+                    control_30=200;
+                }
 //                    System.out.println(control_30);
 
-                    if (control_30==200){
-                        System.out.println("Vuelve a empezar");
-                    }
 
                     //Si no hago lo de igualar a 200, este mensaje saldría siempre que uso números que no estén entre el 1 y 24.
                     if (control_30!=30 && control_30!=200){
@@ -67,23 +69,20 @@ public class practica1_samurais {
                         System.out.println("Equipo completado");
                     }
 
-
-            }while(control_30!=30);
+            }while(control_30!=30 || vetor_potencias.length != 7);
 
         }//Final del for que se hace dos veces para separar los dos equipos.
 
         System.out.println("¡Empieza la batalla!");
-//        System.out.println(Arrays.toString(equipo1));
-//        System.out.println(Arrays.toString(equipo2));
 
         //Ya estan los dos equipos hechos guardados en un array int de longitud 7 cada uno
         //Ahora se saca un numero aleatorio entre el 0 y el 6, para saber en que posición empieza la batalla.
         //Esta posición será la i del for.
 
         int posicion_inicial = aleatorio.nextInt(7);
-        System.out.println("La batalla comienza con el Samurai:"+ (posicion_inicial+1));
-        int contador_equipo1=0; // 6,6,6,6,1,1,4
-        int contador_equipo2=0; // 3,2,3,4,5,6,7
+        System.out.println("La batalla comienza con el Samurai: "+ (posicion_inicial+1));
+        int contador_equipo1=0;
+        int contador_equipo2=0;
 
         //ATENCIÓN --> Lo que viene a continuación se me ocurrió en clase y lo comenté con Denis y Eric sin saber si funcionaría. No se si lo habrán hecho asi al final, pero a lo mejor lo tenemos igual por eso.
 
@@ -105,7 +104,7 @@ public class practica1_samurais {
                     equipo1[i]=0;
 
                 }else {
-                    System.out.println("Empate");
+                    System.out.println("Samurai "+(i+1)+ ". Empate. "+equipo1[i]+ " vs "+ equipo2[i] );
                     equipo1[i]=0;
                     equipo2[i]=0;
 
@@ -121,7 +120,7 @@ public class practica1_samurais {
                     equipo1[k]=0;
                     k++;
                 }else {
-                    System.out.println("Empate");
+                    System.out.println("Samurai "+(k+1)+ ". Empate. "+equipo1[k]+ " vs "+ equipo2[k] );
                     equipo1[k]=0;
                     equipo2[k]=0;
                     k++;
@@ -129,9 +128,10 @@ public class practica1_samurais {
             }
 
         }
+        //Podría haber metido contadores dentro del for para que cuando uno de los contadores sea 4, haga break. Pero al final he decidido que siempre se hagan todas las batallas, y luego comprobar los resultados contando las bajas.
 
-        System.out.println(Arrays.toString(equipo1));
-        System.out.println(Arrays.toString(equipo2));
+//        System.out.println(Arrays.toString(equipo1));
+//        System.out.println(Arrays.toString(equipo2));
 
         //Como la potencia de los samurais que han perdido ha pasado a ser 0, Cuento cuantos ceros hay en cada equipo para comprobar que equipo ha ganado.
         for (int i = 0; i<equipo.length ; i++){
@@ -157,3 +157,7 @@ public class practica1_samurais {
 
     }
 }
+//1,3,5,5,7,8,1
+//2,3,3,4,5,6,7
+// 6,6,6,6,1,1,4
+// 3,2,3,4,5,6,7
