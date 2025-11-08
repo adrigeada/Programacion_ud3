@@ -83,6 +83,8 @@ public class practica1_samurais {
         System.out.println("La batalla comienza con el Samurai: "+ (posicion_inicial+1));
         int contador_equipo1=0;
         int contador_equipo2=0;
+        int contador1 = 0;
+        int contador2 = 0;
 
         //ATENCIÓN --> Lo que viene a continuación se me ocurrió en clase y lo comenté con Denis y Eric sin saber si funcionaría. No se si lo habrán hecho asi al final, pero a lo mejor lo tenemos igual por eso.
 
@@ -98,10 +100,12 @@ public class practica1_samurais {
                 if (equipo1[i] > equipo2[i]){
                     System.out.println("Samurai "+(i+1)+". Gana equipo 1. "+equipo1[i]+ " vs "+ equipo2[i]);
                     equipo2[i]=0;
+                    contador2++;
 
                 }else if (equipo1[i]< equipo2[i]){
                     System.out.println("Samurai "+(i+1)+". Gana equipo 2. "+equipo1[i]+ " vs "+ equipo2[i]);
                     equipo1[i]=0;
+                    contador1++;
 
                 }else {
                     System.out.println("Samurai "+(i+1)+ ". Empate. "+equipo1[i]+ " vs "+ equipo2[i] );
@@ -115,10 +119,14 @@ public class practica1_samurais {
                     System.out.println("Samurai "+(k+1)+". Gana equipo 1. "+equipo1[k]+ " vs "+ equipo2[k]);
                     equipo2[k]=0;
                     k++;
+                    contador2++;
+
                 }else if (equipo1[k]< equipo2[k]){
                     System.out.println("Samurai "+(k+1)+". Gana equipo 2. "+equipo1[k]+ " vs "+ equipo2[k]);
                     equipo1[k]=0;
                     k++;
+                    contador1++;
+
                 }else {
                     System.out.println("Samurai "+(k+1)+ ". Empate. "+equipo1[k]+ " vs "+ equipo2[k] );
                     equipo1[k]=0;
@@ -126,9 +134,11 @@ public class practica1_samurais {
                     k++;
                 }
             }
+            if (contador1 == 4 || contador2 ==4){ //Si las bajas de uno de los dos equipos llegan a 4, las batallas paran
+                break;
+            }
 
         }
-        //Podría haber metido contadores dentro del for para que cuando uno de los contadores sea 4, haga break. Pero al final he decidido que siempre se hagan todas las batallas, y luego comprobar los resultados contando las bajas.
 
 //        System.out.println(Arrays.toString(equipo1));
 //        System.out.println(Arrays.toString(equipo2));
