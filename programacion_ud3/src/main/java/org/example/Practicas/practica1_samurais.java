@@ -85,7 +85,7 @@ public class practica1_samurais {
         int contador_equipo1=0; // 6,6,6,6,1,1,4
         int contador_equipo2=0; // 3,2,3,4,5,6,7
 
-        //ATENCIÓN --> Esta forma de hacerlo se me ocurrió en clase y lo comenté con Denis y Eric sin saber si funcionaría. No se si lo habrán hecho asi al final, pero a lo mejor lo tenemos igual por eso.
+        //ATENCIÓN --> Lo que viene a continuación se me ocurrió en clase y lo comenté con Denis y Eric sin saber si funcionaría. No se si lo habrán hecho asi al final, pero a lo mejor lo tenemos igual por eso.
 
         //Con la j controlo que siempre da las vueltas necesarias. La i y la k las uso para las posiciones.
         //La i empezará en una posicion aleatoria hasta que llegue a la ultima posicion.
