@@ -10,9 +10,9 @@ public class Ruleta {
         Random aleatorio = new Random();
 
         final String[] COLORES = {"rojo","negro"};
-        Integer[] numeros= new Integer[37];
+        Integer[] numeros= new Integer[37]; //para poder usar este vector en un Arrays.asList se necesita definir como Integer. Con int no funciona
 
-        for (int i = 0; i< numeros.length ; i++){
+        for (int i = 0; i< numeros.length ; i++){ //for para crear un vector con numeros entre 0 y 36
 
             numeros[i]= i;
 
@@ -24,7 +24,7 @@ public class Ruleta {
         System.out.println("Introduce tu numero de apuesta: ");
         int numero_apuesta = teclado.nextInt();
 
-        if (!Arrays.asList(numeros).contains(numero_apuesta)){ //si el numero que ha escrito no esta contenido en el vector numeros
+        if (!Arrays.asList(numeros).contains(numero_apuesta)){ //¿El vector numeros contiene el numero_apuesta? Para comprobar si el numero escrito es válido (0-36).
             System.out.println("El número no es válido");
             return;
 
@@ -32,12 +32,13 @@ public class Ruleta {
 
         String color_apuesta = "";
         String par_impar_apuesta = "";
-        if (numero_apuesta != 0){
+
+        if (numero_apuesta != 0){ //Si se elige 0, no se hace lo de dentro de este if, porque el 0 no tiene color ni es parimpar
 
             System.out.println("Introduce el color de tu apuesta (rojo,negro): ");
             color_apuesta = teclado.next().toLowerCase();
 
-            if (!Arrays.asList(COLORES).contains(color_apuesta)){ //si el color que introduce no esta contenido en el vector COLORES
+            if (!Arrays.asList(COLORES).contains(color_apuesta)){ //¿El vector COLORES contiene el color_apuesta introducido?
                 System.out.println("ERROR. El color no es válido");
                 return;
             }
@@ -45,7 +46,7 @@ public class Ruleta {
             System.out.println("Introduce apuesta par/impar: ");
             par_impar_apuesta = teclado.next().toLowerCase();
 
-            if (!Arrays.asList(PAR_IMPAR).contains(par_impar_apuesta)){ //si lo que escribe no es par o impar (lo contenido en el vector PAR_IMPAR)
+            if (!Arrays.asList(PAR_IMPAR).contains(par_impar_apuesta)){ //¿El vector PAR_IMPAR contiene la apuesta_par_impar introducida?
                 System.out.println("ERROR. La apuesta no es valida (par/impar)");
                 return;
             }
