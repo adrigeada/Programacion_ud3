@@ -1,10 +1,10 @@
-package org.example.split;
+package org.example;
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class split_ruleta {
+public class Ruleta {
     static void main() {
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
@@ -53,8 +53,8 @@ public class split_ruleta {
 
         }
 
-        String color_sorteo = COLORES[aleatorio.nextInt(2)]; //va a salir o COLORES [0] o COLORES [1]
-        int numero_sorteo = numeros[aleatorio.nextInt(37)];
+        String color_sorteo = COLORES[aleatorio.nextInt(2)]; //va a salir o COLORES [0] o COLORES [1] Colores [0] es rojo colores [1] es negro
+        int numero_sorteo = numeros[aleatorio.nextInt(37)]; //Va a salir un numero aleatorio que esté entre las posiciones 0 y 36
 
         String par_impar_sorteo = "";
         if (numero_sorteo%2 == 0){
