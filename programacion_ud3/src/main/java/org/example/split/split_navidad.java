@@ -17,6 +17,9 @@ public class split_navidad {
 
         if (vector_palabra.length == cantidad_vector.length){
 
+            //Hay dos for. El primero recorrerá la palabra introducida por teclado. En la primera letra, pasa al siguiente for
+            // y ese for se repite tantas veces como la posicion del primer segundo vector.
+
             for (int i = 0 ; i< vector_palabra.length ; i++){
 
                 for (int j = 0; j<Integer.parseInt(cantidad_vector[i]) ; j++){
