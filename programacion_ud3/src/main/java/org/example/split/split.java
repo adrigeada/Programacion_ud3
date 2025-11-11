@@ -1,4 +1,4 @@
-package org.example;
+package org.example.split;
 
 import java.util.Arrays;
 
