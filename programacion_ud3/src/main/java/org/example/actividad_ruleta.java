@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ruleta {
+public class actividad_ruleta {
     static void main() {
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
