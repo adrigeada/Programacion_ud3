@@ -2,11 +2,11 @@ package org.example;
 
 import java.util.Arrays;
 
-public class actividad_eliminar_duplicados {
+public class modo1_eliminar_duplicados {
     static void main() {
 //modo 1 Eliminar duplicados usando un vector auxiliar y copiando elementos limpios a un vector nuevo
 
-        int[] vector_original = {1,2,2,3,4,4,5};
+        int[] vector_original = {0,1,2,2,3,4,4,5};
         int[] vector_aux = new int[vector_original.length];
 
         int j = 0;
@@ -23,7 +23,7 @@ public class actividad_eliminar_duplicados {
                 vector_aux[j] = vector_original[i];
                 j++;
             }
-            
+
         }
 
         System.out.println(j);
