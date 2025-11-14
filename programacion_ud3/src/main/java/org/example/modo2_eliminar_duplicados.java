@@ -18,6 +18,8 @@ public class modo2_eliminar_duplicados {
 
         }
 
+        System.out.println(Arrays.toString(original));
+
         int[] limpio = new int[tamanyo];
         int j = 0;
 
