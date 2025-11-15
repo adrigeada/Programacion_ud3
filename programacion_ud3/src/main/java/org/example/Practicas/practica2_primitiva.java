@@ -19,9 +19,6 @@ public class practica2_primitiva {
         Integer[] sorteo = new Integer[6];
 
 
-
-
-
         do {
 
             do {
@@ -52,17 +49,18 @@ public class practica2_primitiva {
                     repetir= false;
                 }//Controlar numeros entre el 1 y el 49
 
-                if (i== vector_apuesta.length-1 && vector_apuesta_int[i]<0 && vector_apuesta_int[i]>9){
+                if (i== vector_apuesta.length-1 && vector_apuesta_int[i]<0){
                     System.out.println("El reintegro tiene que ser un número entre el 0 y 9");
                     repetir=false;
                 }//Controlar que el reintegro está entre el 0 y 9
 
             }
 
-            System.out.println(Arrays.toString(vector_apuesta_int));
+
 
         }while (!repetir);
 
+        System.out.println(Arrays.toString(vector_apuesta_int));
 
         //Sacamos 6 números aleatorios y hay que probar que los numeros no estén repetidos. Si encuentra un número repetido, lo cambia por otro aleatorio y vuelve a comprobar que no hayan numeros aleatorios.
         for (int i = 0 ; i< sorteo.length;i++){
