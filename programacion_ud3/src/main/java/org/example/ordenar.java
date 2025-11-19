@@ -17,11 +17,7 @@ public class ordenar {
         System.out.println(Arrays.toString(vector));
 
         int posicion = Arrays.binarySearch(vector2,3); //si esto sale un numero negativo, es porque el numero que buscas no está en el vector. O porque el vector tiene que ser int no Integer
-        System.out.println(posicion);
-
-
-
-
+        System.out.println(posicion); //En que posicion está el numero 3 en el vector2. {0,2,3,4,5}
 
 
 
