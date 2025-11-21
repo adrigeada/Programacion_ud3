@@ -43,7 +43,34 @@ public class Ejercicio3 {
         }
 
         for (String[] fila : matriz){
-            System.out.println(Arrays.toString(fila));
+            for (String columna : fila){
+                System.out.print(columna + " ") ;
+            }
+            System.out.println();
+        }
+
+        double sumanotas = 0;
+        for (int i = 1; i < matriz.length; i++) {
+            sumanotas = 0;
+            for (int j = 1; j < matriz[i].length; j++) {
+
+                sumanotas += Integer.parseInt(matriz[i][j]);
+
+            }
+
+            System.out.println("Nota media de alumno " + matriz[i][0] + " es " +  (sumanotas/asignaturas));
+
+        }
+
+        for (int i = 1; i < matriz[0].length; i++) {
+            sumanotas = 0;
+            for (int j = 1; j < matriz.length; j++) {
+
+                sumanotas += Integer.parseInt(matriz[j][i]);
+
+            }
+
+            System.out.println("La nota media en la asignatura " +matriz[0][i] + " es " + (sumanotas/alumnos));
         }
 
 
