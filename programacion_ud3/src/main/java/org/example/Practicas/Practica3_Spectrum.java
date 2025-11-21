@@ -14,6 +14,7 @@ public class Practica3_Spectrum {
 
 
         do {
+            repetir = false;
             System.out.println("Introduce la resolución de tu pantallas (ancho x alto)");
             System.out.println("Ancho");
             try {
@@ -29,7 +30,7 @@ public class Practica3_Spectrum {
 
             //Validar que los introducidos son divisibles entre 8
 
-            if (ancho % 8 != 0 && alto % 8 != 0){
+            if (ancho % 8 != 0 || alto % 8 != 0){
                 System.out.println("Los números introducidos no son válidos");
                 repetir = true;
                 continue;
@@ -41,6 +42,8 @@ public class Practica3_Spectrum {
             }
 
         }while (repetir);
+
+        teclado.nextLine();
 
         //Introducimos línea por línea la matriz y controlamos que cada letra introducida en cada línea esté dentro del rango A-O
         System.out.println("Introduce línea a línea los colores de tu imagen: ");
