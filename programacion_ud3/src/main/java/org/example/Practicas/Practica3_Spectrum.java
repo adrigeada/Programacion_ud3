@@ -92,6 +92,7 @@ public class Practica3_Spectrum {
 
 
 //Crear un vector con todos los numeros posibles. Preguntar contains. Si es si sube un contador. si el contador es mayor que 3 no es válido ?¿
+        //línea[i] de la matriz contiene vector [j]
 
 
 
