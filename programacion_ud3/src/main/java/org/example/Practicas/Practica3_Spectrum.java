@@ -97,7 +97,7 @@ public class Practica3_Spectrum {
 
         //Calcular cuantas veces se puede repetir el contador por alto y por ancho
 
-        int contador_filas = 0;
+        int contador_filas = 0; 
         boolean control = false;
         int j = 0;
         int h = 0;
