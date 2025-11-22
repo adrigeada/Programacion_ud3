@@ -98,7 +98,6 @@ public class Practica3_Spectrum {
         //Calcular cuantas veces se puede repetir el contador por alto y por ancho
 
         int contador_filas = 0;
-        int contador_columnas = 0;
         boolean control = false;
         int j = 0;
         int h = 0;
@@ -114,7 +113,7 @@ public class Practica3_Spectrum {
                 j=8*k;
 
 
-                if (i == 0 || i==8 || i==16 || i == 24 || i == 32 || i == 40){
+                if (i == 0 || i==8 || i==16 || i == 24 || i == 32 || i == 40){ //Cada vez que la matriz 8x8 ha sido creada y comprobada, se resetea la matriz.
                     nueva = new String[8][8];
                     h = 0;
                 }
@@ -128,7 +127,7 @@ public class Practica3_Spectrum {
                     System.out.println(Arrays.toString(fila));
                 }
 
-                if (i==7 || i==15 || i == 23 || i == 31 || i == 39) {
+                if (i==7 || i==15 || i == 23 || i == 31 || i == 39) {// Cuando se ha creado una matriz completa se activa el test.
                     test = true;
                 }
 
