@@ -1,5 +1,6 @@
 package org.example.Practicas;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -49,7 +50,7 @@ public class Practica3_Spectrum {
         System.out.println("Introduce línea a línea los colores de tu imagen: ");
 
         String[][] matriz = new String[alto][ancho];
-//        String[] linea = new String[matriz[0].length];
+
 
         fuera:
         for (int i = 0; i < matriz.length; i++) {
@@ -91,8 +92,82 @@ public class Practica3_Spectrum {
         }
 
 
-//Crear un vector con todos los numeros posibles. Preguntar contains. Si es si sube un contador. si el contador es mayor que 3 no es válido ?¿
+        //Crear un vector con todos los numeros posibles. Preguntar contains. Si es si sube un contador. si el contador es mayor que 3 no es válido ?¿
         //línea[i] de la matriz contiene vector [j]
+
+        //Calcular cuantas veces se puede repetir el contador por alto y por ancho
+
+        int contador_filas = 0;
+        int contador_columnas = 0;
+        boolean control = false;
+        int j = 0;
+        int h = 0;
+        String[][] nueva = new String[8][8];
+        boolean test = false;
+
+        String[] letras = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
+
+        todo:
+        for (int k = 0 ; k < ancho/8 ; k++){//se va a hacer una vez si el ancho es 8, dos si es 16, 3 si es 24...
+
+            for (int i = 0 ; i < matriz.length ; i++ , h++){
+                j=8*k;
+
+
+                if (i == 0 || i==8 || i==16 || i == 24 || i == 32 || i == 40){
+                    nueva = new String[8][8];
+                    h = 0;
+                }
+
+                for (int l = 0 ; l<8 ; l++, j++){
+
+                    nueva[h][l] = matriz[i][j];
+                }
+
+                for (String fila[] : nueva){
+                    System.out.println(Arrays.toString(fila));
+                }
+
+                if (i==7 || i==15 || i == 23 || i == 31 || i == 39) {
+                    test = true;
+                }
+
+                if (test){
+
+                    //Comprobador de filas
+                    contador_filas=0;
+                    for (int x = 0; x < 8; x++) {
+
+                        for (int y = 0; y < letras.length; y++) {
+
+                            if (Arrays.asList(nueva[x]).contains(letras[y])){
+                                contador_filas++;
+                                System.out.println(contador_filas);
+                            }
+
+                            if (contador_filas > 16){
+                                control = true;
+                                break todo;
+                            }
+                        }
+                    }
+
+                }
+                test=false;
+
+            }
+
+        }
+
+
+
+
+
+        if (control){
+            System.out.println("No compatible");
+        }else {
+            System.out.println("Compatible");
+        }
 
 
 
