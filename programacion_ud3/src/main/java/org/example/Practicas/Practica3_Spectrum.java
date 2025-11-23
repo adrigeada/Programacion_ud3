@@ -62,8 +62,8 @@ public class Practica3_Spectrum {
 
                 for (int j = 0; j < matriz[i].length; j++) {
                     if (linea[j].matches("[A-O]")){ //Se controla que cada letra introducida esté en el rango de [A-O]
-                        matriz[i][j] = linea[j];
 
+                        matriz[i][j] = linea[j];
 
                     }else {
                         System.out.println("Has introducido un valor de pixel incorrecto");
@@ -92,19 +92,22 @@ public class Practica3_Spectrum {
         }
 
 
-        //Crear un vector con todos los numeros posibles. Preguntar contains. Si es si sube un contador. si el contador es mayor que 3 no es válido ?¿
-        //línea[i] de la matriz contiene vector [j]
+        //
 
-        //Calcular cuantas veces se puede repetir el contador por alto y por ancho
 
-        int contador_filas = 0; 
+        int contador_filas = 0;
+        int contador_col = 0;
         boolean control = false;
+        boolean control_col = false;
+        String[] columna = new String[8];
+        String[] letras = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
+
         int j = 0;
         int h = 0;
         String[][] nueva = new String[8][8];
         boolean test = false;
 
-        String[] letras = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
+
 
         todo:
         for (int k = 0 ; k < ancho/8 ; k++){//se va a hacer una vez si el ancho es 8, dos si es 16, 3 si es 24...
@@ -131,17 +134,19 @@ public class Practica3_Spectrum {
                     test = true;
                 }
 
-                if (test){
+                if (test){ //Hay dos test. Uno para filas y otro para columnas.
 
-                    //Comprobador de filas
+                    //Comprobador de filas. Se coje cada fila de la matriz 8x8 creada, y se cuentan cuantas letras diferentes contiene. Cada fila puede tener un máximo
+                    //de dos letras diferentes. Por lo que el máximo de letras diferentes que se pueden contar son 16. Dos en cada fila. Si es más de 16 se para todo el proceso
+                    //porque ya sabemos que hay mas de dos letras en una fila
                     contador_filas=0;
                     for (int x = 0; x < 8; x++) {
 
                         for (int y = 0; y < letras.length; y++) {
 
-                            if (Arrays.asList(nueva[x]).contains(letras[y])){
+                            if (Arrays.asList(nueva[x]).contains(letras[y])){ //Se recorre
                                 contador_filas++;
-                                System.out.println(contador_filas);
+                                System.out.println("filas"+contador_filas);
                             }
 
                             if (contador_filas > 16){
@@ -151,8 +156,45 @@ public class Practica3_Spectrum {
                         }
                     }
 
+                    //Comprobador de columnas. Se comprueba igual que las filas. Pero como no se puede coger una columna de la matriz 8x8 creada, primero hay que crear un vector
+                    // por cada columna, que se va a resetear y va a pasar a estar vacío despues de cada vuelta del for de fuera.
+                    contador_col= 0;
+                    for (int a = 0; a < nueva.length; a++) { //Se resetea el vector. (no hace falta resetearlo)
+//                        columna = new String[8];
+
+                        for (int b = 0; b < columna.length; b++) { //Se crea el vector cogiendo las columnas de la matriz
+
+                            columna[b] = nueva[b][a];
+
+                            if (b == columna.length-1){ //Cuando ha llegado a la ultima vuelta se activa este camino.
+                                System.out.println(Arrays.toString(columna));
+
+                                for (int c = 0; c < letras.length; c++) {//Con este for el contador se suma cada vez que una de las letras posibles está en el vector.
+
+                                    if (Arrays.asList(columna).contains(letras[c])){
+                                        contador_col++;
+                                        System.out.println("columnas" +contador_col);
+                                    }
+
+                                    if (contador_col > 16){
+                                        control_col = true;
+                                        break todo;
+                                    }
+
+
+                                }
+
+
+                            }
+
+                        }
+
+                    }
+
+
+
                 }
-                test=false;
+                test=false; //Una vez acabado el test, si no hay ningun contador que haya superado 16, se resetea. Así no se hará el test en todas las vueltas siguientes, solo cuando se requiera.
 
             }
 
@@ -160,9 +202,9 @@ public class Practica3_Spectrum {
 
 
 
+        //Si uno de los dos contadores ha sido mayor que 16, se ha activado el booleano control y no sería compatible
 
-
-        if (control){
+        if (control || control_col){
             System.out.println("No compatible");
         }else {
             System.out.println("Compatible");
