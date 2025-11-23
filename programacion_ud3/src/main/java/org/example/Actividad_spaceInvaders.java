@@ -50,11 +50,5 @@ public class Actividad_spaceInvaders {
 
 
 
-
-
-
-
-
-
     }
 }
