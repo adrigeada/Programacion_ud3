@@ -13,7 +13,7 @@ public class Practica3_Spectrum {
         int alto = 0;
         boolean repetir = false;
 
-
+        //Se pide el alto y el ancho, que serán la i y la j de la matriz. Se controlan que sean números y que estén entre el 8 y el 48
         do {
             repetir = false;
             System.out.println("Introduce la resolución de tu pantallas (ancho x alto)");
@@ -26,7 +26,11 @@ public class Practica3_Spectrum {
 
             } catch (InputMismatchException e) {
                 System.out.println("Tienes que introducir números enteros");
+                repetir=true;
+                teclado.nextLine();
             }
+
+
 
 
             //Validar que los introducidos son divisibles entre 8
@@ -92,7 +96,10 @@ public class Practica3_Spectrum {
         }
 
 
-        //
+        //Ahora lo que voy a hacer es sacar matrices 8x8 de la matriz introducida. Si la matriz introducida es 16x8 sacaré 2, si es 16x16 sacaré 4 ...
+        //El primer for controla el ancho de la matriz total. Se hará un numero de veces que depende del ancho de la matriz. En la primera vuelta la j empezará en 0, en la segunda empezará en 8, en la tercera 16...
+        //El segundo for va a recorrer el alto de la matriz total. Cada vez que la i llega a 7,15,23,31 o 39 la matriz 8x8 habrá sido creada. Entonces se comprueba si las letras de esta nueva matriz 8x8 creada están repetidas
+        //Una vez comprobado, esta matriz nueva se resetea y vuelve a estar vacía para poder empezar el ciclo otra vez.
 
 
         int contador_filas = 0;
@@ -126,9 +133,9 @@ public class Practica3_Spectrum {
                     nueva[h][l] = matriz[i][j];
                 }
 
-                for (String fila[] : nueva){
-                    System.out.println(Arrays.toString(fila));
-                }
+//                for (String fila[] : nueva){
+//                    System.out.println(Arrays.toString(fila));
+//                }
 
                 if (i==7 || i==15 || i == 23 || i == 31 || i == 39) {// Cuando se ha creado una matriz completa se activa el test.
                     test = true;
@@ -144,9 +151,9 @@ public class Practica3_Spectrum {
 
                         for (int y = 0; y < letras.length; y++) {
 
-                            if (Arrays.asList(nueva[x]).contains(letras[y])){ //Se recorre
+                            if (Arrays.asList(nueva[x]).contains(letras[y])){ //Se recorre el vector letras en cada fila de la matriz y se cuentan cuantas letras diferentes hay en cada línea
                                 contador_filas++;
-                                System.out.println("filas"+contador_filas);
+//                                System.out.println("filas"+contador_filas);
                             }
 
                             if (contador_filas > 16){
@@ -167,13 +174,13 @@ public class Practica3_Spectrum {
                             columna[b] = nueva[b][a];
 
                             if (b == columna.length-1){ //Cuando ha llegado a la ultima vuelta se activa este camino.
-                                System.out.println(Arrays.toString(columna));
+//                                System.out.println(Arrays.toString(columna));
 
                                 for (int c = 0; c < letras.length; c++) {//Con este for el contador se suma cada vez que una de las letras posibles está en el vector.
 
                                     if (Arrays.asList(columna).contains(letras[c])){
                                         contador_col++;
-                                        System.out.println("columnas" +contador_col);
+//                                        System.out.println("columnas" +contador_col);
                                     }
 
                                     if (contador_col > 16){
