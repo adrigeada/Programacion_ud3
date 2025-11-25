@@ -9,7 +9,10 @@ public class Matrices {
 
         int matriz2[][] = new int[3][3];
 
-        System.out.println(Arrays.toString(matriz[0]));
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.println(Arrays.toString(matriz[i]));
+        }
+
 
         System.out.println(matriz[1][0]);
         System.out.println(matriz[2][1]);
