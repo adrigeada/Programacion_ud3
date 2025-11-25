@@ -35,7 +35,7 @@ public class Aapuntes {
         Arrays.sort(vector4, Collections.reverseOrder()); //Ordena el vector de manera descendente. Esto necesita que el vector sea Integer, no int.
 
         //BINARY SEARCH
-        int posicion = Arrays.binarySearch(vector4,3);//En que posicion está el numero 3 en el vector4. Empezando desde 0
+        int posicion = Arrays.binarySearch(vector,3);//En que posicion está el numero 3 en el vector4. Empezando desde 0
 
         //ELIMINAR DUPLICADOS
         int[] vectorlimpio = Arrays.stream(vector).distinct().toArray();

@@ -43,7 +43,7 @@ public class NotadeAmor {
             String decision = teclado.next();
             teclado.nextLine();
 
-            //HCER ESTO CON UN SWITCH CASE 
+            //HCER ESTO CON UN SWITCH CASE
 
             if (decision.equals("E")){
                 posicion = mapa[altura_inicial][longitud_inicial+1];
