@@ -41,7 +41,7 @@ public class Aapuntes {
         int[] vectorlimpio = Arrays.stream(vector).distinct().toArray();
 
         //MATCHES
-        frase.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d"); //devuelve true or false.
+        frase.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d"); //devuelve true or false. Se hace a un String, no a un vector de String
         // linea[j].matches("[A-O]")
 
 
